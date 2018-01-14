@@ -5,8 +5,8 @@ This problem provides practice at:
   ***  IMPLEMENTING CLASSES.  ***
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Satya Arcot.
+"""  # DONE: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 ########################################################################
 # Students:
@@ -39,9 +39,9 @@ def main():
     # UN-comment tests as you work the problems.
     ####################################################################
 
-#     run_test_init()
-#     run_test_append_string()
-#     run_test_double()
+    run_test_init()
+    run_test_append_string()
+    run_test_double()
 #     run_test_shrink()
 #     run_test_double_then_shrink()
 #     run_test_reset()
@@ -94,7 +94,7 @@ class Box(object):
           :type volume: int
         """
         # --------------------------------------------------------------
-        # TODO: 2. Implement and test this function.
+        # DONE: 2. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -102,6 +102,8 @@ class Box(object):
         #    DIFFICULTY:      3
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
+        self.contents = contents
+        self.volume = volume
 
     def append_string(self, additional_contents):
         """
@@ -135,7 +137,7 @@ class Box(object):
           :type additional_contents: str
         """
         # --------------------------------------------------------------
-        # TODO: 3. Implement and test this function.
+        # DONE: 3. Implement and test this function.
         #     See the testing code (below) for more examples.
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -156,6 +158,13 @@ class Box(object):
         #       Read_this_ONLY_when_asked_Part_2.txt
         #    and continue working on the problem.
         # --------------------------------------------------------------
+        dump = ''
+        for k in range(len(additional_contents)):
+            if len(self.contents) < self.volume:
+                self.contents += additional_contents[k]
+            else:
+                dump = dump + additional_contents[k]
+        return dump
 
     def double(self):
         """
@@ -191,7 +200,7 @@ class Box(object):
           #                       contents that did NOT fit]
         """
         # --------------------------------------------------------------
-        # TODO: 4. Implement and test this function.
+        # DONE: 4. Implement and test this function.
         #     The testing code is already written for you (above).
         # --------------------------------------------------------------
         # --------------------------------------------------------------
@@ -203,6 +212,8 @@ class Box(object):
         # FOR FULL CREDIT, YOUR SOLUTION MUST BE NO MORE THAN
         #    ** TWO **   LINES OF CODE.
         ################################################################
+        double = self.append_string(self.contents)
+        return double
 
     def shrink(self, new_volume):
         """
