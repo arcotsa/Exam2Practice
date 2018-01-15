@@ -45,7 +45,7 @@ def main():
     run_test_shrink()
     run_test_double_then_shrink()
     run_test_reset()
-#     run_test_steal()
+    run_test_steal()
 #     run_test_get_history()
 #     run_test_combined_box()
 
@@ -347,8 +347,7 @@ class Box(object):
         #    DIFFICULTY:      4
         #    TIME ESTIMATE:   5 minutes.
         # --------------------------------------------------------------
-        return self.contents
-        return self.volume
+
 
     def steal(self, other_box):
         """
@@ -381,6 +380,8 @@ class Box(object):
         # FOR FULL CREDIT, YOUR SOLUTION MUST BE NO MORE THAN
         #    ** TWO **   LINES OF CODE.
         ################################################################
+        other_box.contents = self.contents
+        other_box.volume = self.volume
 
     def get_history(self):
         """
